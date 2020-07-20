@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+  <script  src="{% static 'jquery.js' %}"></script>
+</head>
+<body>
+   <h1> Hello world</h1>
+	|<form    id="form" >
+       {% csrf_token %}
+        <input type="file" name="image" required class="img"/>
+        <input type="submit" value="upload"/>
+    </form>
+    <div id="bar">
+        <div></div>
+    </div>
+</body>
+<script>
+    $("#form").submit((e)=>{
+        e.preventDefault();
+alert("hello")
+    })
+</script>
+</html>

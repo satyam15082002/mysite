@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block title %}
+derived
+{% endblock %}
+{% block head %}
+<script>
+    alert("hello")
+    const S=async ()=>{
+        const options={
+            method:'POST',
+            body:{csrfmiddlewaretoken:{% csrf_token %},
+        }
+        var response=await fetch('http://127.0.0.1:8990/',options);
+        var result=await response.json()
+    }
+    S();
+</script>
+{% endblock%}
+{% block body %}
+<h1>world</h1>
+<form method="POST" id="form">
+    {% csrf_token %}
+    <input type="text" value="satyam" name="name"/>
+    <input type="submit"/>
+</form>
+<form method="POST" action="my">
+    {% csrf_token %}
+    <input type="submit"/>
+</form>
+<form method="PUT" action="my">
+    {% csrf_token %}
+    <input type="submit" value="put"/>
+</form>
+{% endblock %}
